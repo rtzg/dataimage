@@ -81,13 +81,18 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+app.get('/ut', function(req, res) {
+    res.redirect("https://alphabrate.github.io/project/di/ut");
+});
+
 app.get('/api/getBrowser', function(req, res) {
     var ua = parser(req.headers['user-agent']);
     res.end(JSON.stringify(ua, null, '  '));
 });
 
 
+
 app.listen(PORT, function(error) {
     if (error) throw error
     console.log("Server created Successfully on PORT:" + PORT)
-})
+});
