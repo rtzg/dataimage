@@ -31,7 +31,7 @@ app.post("/upload", multer().single("file"), (req, res) => {
         <meta name="color-scheme" content="light dark">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>输出</title>
+        <title>Output</title>
         <link rel="stylesheet" href="res/style.css">
         <script src="res/xm.js"></script>
     </head>
@@ -39,18 +39,18 @@ app.post("/upload", multer().single("file"), (req, res) => {
     <body>
         <center>
             <div class="preview">
-                <h1>预览</h1>
+                <h1>Preview</h1>
                 <img src="" id="img">
             </div>
             <hr>
             <div class="code">
-                <h1>代码</h1>
+                <h1>Code</h1>
                 <textarea id="text" readonly></textarea>
             </div>
             <hr>
             <div class="btns">
-                <button id="copy">复制 data:image</button>
-                <button id="viewSource">查看完整代码</button>
+                <button id="copy">Copy data:image</button>
+                <button id="viewSource">View all</button>
             </div>
         </center>
         <script>
@@ -60,7 +60,7 @@ app.post("/upload", multer().single("file"), (req, res) => {
             document.getElementById("copy").onclick = function() {
                 document.getElementById("text").select()
                 document.execCommand("Copy")
-                message("复制成功")
+                message("Copied")
             }
             document.getElementById("viewSource").onclick = function() {
                 var win = window.open("", "_blank")

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="color-scheme" content="light dark">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DI</title>
+    <title>Data:Image</title>
     <link rel="stylesheet" href="res/style.css">
 
 </head>
@@ -15,15 +15,15 @@
     <div id="prw"></div>
     <center>
         <form action="/upload" method="post" name="file" enctype="multipart/form-data">
-            <h1>上传</h1>
+            <h1>Upload</h1>
             <label>
                 <div class="btn" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">上传</div>
                 <input onchange="change(this.value)" type="file" name="file" id="file" accept=".png,.svg,.gif,.jpg,.jpeg,.webp">
             </label>
-            <p>未选择文件</p>
+            <p>No file selected</p>
             <br>
-            <button>提交</button>
-            <p>使用该项目即代表您同意<a href="./ut">用户协议</a></p>
+            <button>Submit</button>
+            <p>By using this project, you agree to<a href="./ut">the User Terms of Service</a></p>
         </form>
     </center>
     <script>
@@ -32,14 +32,14 @@
                 document.getElementsByTagName('p')[0].innerHTML = e.split(`fakepath\\`)[1];
                 previewImage();
             } else {
-                document.getElementsByTagName('p')[0].innerHTML = '未选择文件';
+                document.getElementsByTagName('p')[0].innerHTML = 'No file selected';
             }
         }
 
         function dropHandler(ev) {
             ev.preventDefault();
             if (ev.dataTransfer.files.length > 1) {
-                document.getElementsByTagName('p')[0].innerHTML = '请单选文件';
+                document.getElementsByTagName('p')[0].innerHTML = 'Please select a file only';
             } else {
                 document.getElementById('file').files = ev.dataTransfer.files;
                 document.getElementsByTagName('p')[0].innerHTML = ev.dataTransfer.files[0].name;
