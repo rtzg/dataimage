@@ -15,9 +15,8 @@
     <div id="prw"></div>
     <center>
         <form action="/upload" method="post" name="file" enctype="multipart/form-data">
-            <h1>Upload</h1>
             <label>
-                <div class="btn" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">上传</div>
+                <div class="btn" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Upload a image</div>
                 <input onchange="change(this.value)" type="file" name="file" id="file" accept=".png,.svg,.gif,.jpg,.jpeg,.webp">
             </label>
             <p>No file selected</p>
