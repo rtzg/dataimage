@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const multer = require("multer");
 const app = express();
 const fs = require("fs");
@@ -8,19 +7,19 @@ const PORT = process.env.PORT || 5000;
 var UAParser = require('ua-parser-js');
 
 app.get('/res/:file', (req, res) => {
-    res.sendFile(path.join(__dirname, `./public/res/${req.params.file}`))
+    res.sendFile(__dirname + `./public/res/${req.params.file}`);
 });
 
 app.post("/upload", multer().single("file"), (req, res) => {
     const file = req.file;
     if (file == undefined) {
-        return res.sendFile(path.join(__dirname, `./public/er.html`));
+        return res.sendFile(__dirname + `./public/er.html`);
     }
     const type = file.mimetype.split("/")[0]
     var Type = file.mimetype.split("/")[1]
     const isImage = type === "image"
     if (!isImage) {
-        return res.sendFile(path.join(__dirname, `./public/er.html`));
+        return res.sendFile(__dirname + `./public/er.html`);
     };
     Type = Type.toUpperCase()
     var resi = imageDataURI.encode(file.buffer, Type)
@@ -79,7 +78,7 @@ app.post("/upload", multer().single("file"), (req, res) => {
 });
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    res.sendFile(__dirname + 'public', 'index.html');
 });
 
 app.get('/api/getBrowser', function(req, res) {
