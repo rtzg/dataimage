@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="color-scheme" content="light dark">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输出</title>
+    <link rel="stylesheet" href="res/style.css">
+    <script src="res/xm.js"></script>
+</head>
+
+<body>
+    <center>
+        <div class="preview">
+            <h1>预览</h1>
+            <img src="" id="img">
+        </div>
+        <hr>
+        <div class="code">
+            <h1>代码</h1>
+            <textarea id="text" readonly></textarea>
+        </div>
+        <hr>
+        <div class="btns">
+            <button id="copy">复制 data:image</button>
+            <button id="viewSource">查看完整代码</button>
+        </div>
+    </center>
+    <script>
+        src = "${resi}";
+        document.getElementById("img").src = src
+        document.getElementById("text").innerHTML = src
+        document.getElementById("copy").onclick = function() {
+            document.getElementById("text").select()
+            document.execCommand("Copy")
+            message("复制成功")
+        }
+        document.getElementById("viewSource").onclick = function() {
+            var win = window.open("", "_blank")
+            win.document.head.innerHTML = '<meta name="color-scheme" content="light dark"><title>Source</title>';
+            win.document.write("<pre>" + src + "</pre>")
+        }
+    </script>
+    <script>
+        startXmessage();
+    </script>
+</body>
+
+</html>
